@@ -89,31 +89,81 @@
 // document.body.appendChild(seqcia)
 
 //--------------------------------------
-const yuti1 = document.getElementsByClassName("box5")[0];
-yuti1.textContent = "changed"
+// const yuti1 = document.getElementsByClassName("box5")[0];
+// yuti1.textContent = "changed"
 
-const yuti2 = document.querySelectorAll(".box5")[1];
-yuti2.style.color = "red"
+// const yuti2 = document.querySelectorAll(".box5")[1];
+// yuti2.style.color = "red"
 
 //---------------listis damateba-----------------------
-const uli = document.createElement("ul");
-uli.className = "sia"
+// const uli = document.createElement("ul");
+// uli.className = "sia"
 
-const listi1 = document.createElement("li")
-const listi2 = document.createElement("li")
-const listi3 = document.createElement("li")
+// const listi1 = document.createElement("li")
+// const listi2 = document.createElement("li")
+// const listi3 = document.createElement("li")
 
-listi1.textContent = "erti";
-listi1.style.backgroundColor = "green"
+// listi1.textContent = "erti";
+// listi1.style.backgroundColor = "green"
 
-listi2.textContent = "ori";
-listi2.style.backgroundColor = "grey";
+// listi2.textContent = "ori";
+// listi2.style.backgroundColor = "grey";
 
-listi3.textContent = "sami";
-listi3.style.backgroundColor = "red"
+// listi3.textContent = "sami";
+// listi3.style.backgroundColor = "red"
 
-uli.appendChild(listi1);
-uli.appendChild(listi2);
-uli.appendChild(listi3);
-document.body.appendChild(uli)
+// uli.appendChild(listi1);
+// uli.appendChild(listi2);
+// uli.appendChild(listi3);
+// document.body.appendChild(uli)
 
+//-------------------------------------------------
+const text = "    This is My to do List."
+console.log(text.toUpperCase());
+console.log(text.toLowerCase());
+console.log(text.indexOf("do"));
+console.log(text.slice(0,10));
+console.log(text.substring(6));
+console.log(text.replace("My", "your"));
+console.log(text.trim());
+console.log(text.split(" "));
+
+//----------------ternary operator----------------------------------
+const qula = 88;
+const grade = qula >= 91 ? "A": "Not A"
+console.log(grade);
+
+//-----------------------------------------------
+count = 3 ;
+do {
+    console.log(` count is ${count}`)
+    count++;
+} while (count <= 6)
+
+
+for (let p = 0; p < 5; p++) {
+console.log(`itteration ${p}`);
+}
+
+// for (let i = 10; i <= 30; i++) {
+//     console.log(i);
+// }
+
+
+const text2 = "what kind of text is this"
+const words = text2.split(" ") //ეს ტექსტს აქცევს მასივად
+for( let i = 0; i < words.length; i++) {
+    if (words[i].includes("t")){
+        words[i] = "Found"
+    }
+}
+console.log(words.join(" "));
+
+
+const xili = ["ვაშლი", "კივი", "მსხალი", "ნესვი", "ატამი", "ყურძენი", ];
+for(let i = 0; i < xili.length; i++) {
+    if(xili[i].includes("ა")) {
+        xili[i] = "ნაპოვნია"
+    }
+}
+console.log(xili.join(" "));
