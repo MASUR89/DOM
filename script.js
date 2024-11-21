@@ -167,3 +167,86 @@ for(let i = 0; i < xili.length; i++) {
     }
 }
 console.log(xili.join(" "));
+
+//----------------------array, array methods
+//---------push, დამატება ბოლოში
+let sportType = ["ცურვა", "ტანვარჯიში"]
+console.log("სპორტის სახეობები:", sportType);
+
+sportType.push("ხელბურთი", "მძლეოსნობა")
+console.log("უფრო ვრცელი ჩამონათვალი:", sportType);
+//-----------pop, ბოლო ელემენტის ამოღება მასივიდან
+let last = sportType.pop()
+console.log(last);
+console.log(sportType);
+//--task
+let list = ["movie1", "movie2", "movie3", "movie4"]
+console.log("initial list:",  list);
+let worst = list.pop()
+console.log("my list:", list);
+console.log("the worst movie:", worst);
+
+//------------------shift, unshift - remove & add first
+let first = list.shift()
+console.log(list);
+console.log(first);
+list.unshift("some movie");
+console.log(list);
+//--task
+let fruit = ["ვაშლი", "კივი", "მსხალი", "ნესვი", "ატამი", "ყურძენი", ];
+console.log(fruit);
+let oldFruit = fruit.shift();
+console.log(fruit);
+console.log(oldFruit);
+fruit.unshift("ქლიავი")
+console.log(fruit);
+//--task
+let sia = ["ana", "bana", "gana",];
+sia.pop();
+sia.unshift("dana");
+sia.shift();
+console.log(sia);
+//--
+let toDo = [];
+toDo.push("gym", "cleaning", "washing", "ironing");
+toDo.shift();
+toDo.pop();
+console.log(toDo);
+//--task----add 5 to each
+let number = [10, 20, 30, 40, 50];
+number.push(60);
+number.shift();
+for(let i = 0; i < number.length; i++) {
+    console.log(number[i] + 5);
+}
+
+let sum = 0;
+let j = 0;
+while  (j < number.length) {
+    sum += number[j];
+    j++
+}
+console.log("total:", sum);
+
+let studentebi = [
+    {name: "nana", score: 100},
+    {name: "nunu", score: 90},
+    {name: "nini", score: 80}
+]
+studentebi.push({name: "dodo", score: 97},{name: "dada", score: 87})
+console.log(studentebi);
+let minscore = 0;
+let i = 0;
+do {
+    if (studentebi[i].score < studentebi[minscore].score) {
+        minscore = i;
+    }
+    i++
+}while ( i < studentebi.length)
+    studentebi.splice(minscore, 1)
+    console.log(studentebi);
+
+for (let i = 0; i < studentebi.length; i++) {
+    let status = studentebi[i].score >= 90 ? "Passed" : "Failed";
+    console.log((`${studentebi[i].name} ${status}`));
+}
