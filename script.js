@@ -250,3 +250,69 @@ for (let i = 0; i < studentebi.length; i++) {
     let status = studentebi[i].score >= 90 ? "Passed" : "Failed";
     console.log((`${studentebi[i].name} ${status}`));
 }
+
+//------26.11.24-------------array methods
+//-------map--მოქმედებს მასივის ყველა წევრზე
+const num5 = [1, 2, 3, 4];
+const double = num5.map(nnum => nnum * 2);
+console.log(double);
+
+const produ = [
+    {price: 100},
+    {price: 200},
+    {price: 300}
+]
+const axali = produ.map(produ => produ.price * 2.7 + " Gel");
+console.log(axali);
+
+//=====task=====
+const cels = [ 2, 10, 15, 20]
+const celsi = cels.map(celsi => celsi * 9/5 + 32 + " F");
+console.log(celsi);
+
+//------filter----ფილტრავს მითითებული თვისების მქონე წევრებს
+const num6 = [ 2, 10, 15, 20];
+const evens = num6.filter(num => num %2 === 0);
+console.log(evens);
+
+//--გავფილტრეთ სიტყვები, რომლებიც იწყება ასოთი "g"
+const words26 = ["gym", "cleaning", "washing", "going"];
+const words262 = words26.filter(word => word[0] === "g");
+console.log(words262);
+
+//=====task=====
+const passwords = ["adamiani123","kaciaadamiani202","aqvarme123","arashendi"];
+const passa = passwords.filter(pass => pass[0] === "a");
+console.log(passa);
+const leng = passa.map(pass => pass.length >= 8);
+console.log(leng);
+
+//-------reduce---მასივის წევრები დაყავს ერთ წევრამდე
+const num8 = [6, 2, 3, 4];
+const summ = num8.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(summ);
+const namravli = num8.reduce((acc, mun) => acc * mun, 1);
+console.log(namravli);
+
+//------concat --- მასივების გაერთიანება (ძირითადად 2 მაასივისთვის გამოიყენება)
+const array1 = [1,3,5];
+const array2 = [2,4,6];
+const gaerTianeba = array1.concat(array2);
+console.log(gaerTianeba);
+
+//---------spread ---მასივების გაერთიანების უკეთესი მეთოდი
+const array3 = ["koka", "gvantsa"];
+const array4 = ["luka", "nino"];
+const array5 = ["gogo", "biWi"]
+const spredi = [...array3, ...array5, ...array4];
+console.log(spredi);
+
+//=====task=====
+const one = [1,2,3];
+const two = [4,5,6];
+const three = [7,8];
+const jami = [...one, ...two, ...three];
+const dajameba = jami.reduce((erti, ori) => erti + ori, 0);
+console.log(dajameba);
+
+//-----------
