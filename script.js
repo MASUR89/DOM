@@ -175,6 +175,7 @@ console.log("სპორტის სახეობები:", sportType);
 
 sportType.push("ხელბურთი", "მძლეოსნობა")
 console.log("უფრო ვრცელი ჩამონათვალი:", sportType);
+
 //-----------pop, ბოლო ელემენტის ამოღება მასივიდან
 let last = sportType.pop()
 console.log(last);
@@ -206,7 +207,7 @@ sia.pop();
 sia.unshift("dana");
 sia.shift();
 console.log(sia);
-//--
+//--task
 let toDo = [];
 toDo.push("gym", "cleaning", "washing", "ironing");
 toDo.shift();
