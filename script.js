@@ -316,4 +316,140 @@ const jami = [...one, ...two, ...three];
 const dajameba = jami.reduce((erti, ori) => erti + ori, 0);
 console.log(dajameba);
 
-//-----------
+//-- ლოგიკური ოპერატორებია 3: ან ||, და &&, უარყოფა !
+//--------------------------------------------------28.11.24 -- obieqtebi
+//--ობიექტის მარცხენა მხარე არის key ან property, მარჯვენა - value
+
+const car = {
+    brand: "Toyota",
+    model: "Prius",
+    year: 2022
+}
+car.brand = "Tesla"
+
+//----------------------------------nested object 
+const person = {
+    name: "Pepe",
+    age: 25,
+    address: {
+        street: "Rustaveli st",
+        city: "Tbilisi",
+        zip: 1001
+    },
+    job: "work"
+}
+console.log(person.address.city);
+
+//====task
+const book = {
+    title: "The novel",
+    author: "The author",
+    publisher: {
+        name: "Bookworms",
+        year: "1990"
+    }
+}
+console.log(book.title);
+console.log(book.author);
+console.log(book.publisher.name);
+console.log(book.publisher.year);
+
+//-------------------მეთოდები ობიექტებში
+
+const user = {
+    id: "12345",
+    username: "johnDoe2024",
+    personalDetails: {
+      firstName: "John",
+      lastName: "Doe",
+      birthDate: "1990-05-15",
+      gender: "Male",
+      contactInfo: {
+        email: "johndoe@example.com",
+        phone: {
+          home: "+123456789",
+          mobile: "+987654321"
+        },
+        address: {
+          street: "123 Elm St",
+          city: "Springfield",
+          state: "IL",
+          postalCode: "62701",
+          country: "USA"
+        }
+      }
+    },
+    roles: ["admin", "editor"],
+    preferences: {
+      language: "English",
+      theme: "dark",
+      notifications: {
+        email: true,
+        sms: false,
+        push: true
+      }
+    },
+    socialProfiles: {
+      twitter: {
+        username: "@john_doe",
+        followers: 1500,
+        following: 250,
+        posts: [
+          { postId: "a1", content: "Just had a great day!", likes: 150, datePosted: "2024-11-15T08:30:00Z" },
+          { postId: "a2", content: "Loving the new phone!", likes: 200, datePosted: "2024-11-10T14:45:00Z" }
+        ]
+      },
+      facebook: {
+        username: "john.doe.123",
+        friendsCount: 1000,
+        recentActivities: [
+          { activityId: "f1", type: "Like", content: "Liked a post from Jane", date: "2024-11-18" },
+          { activityId: "f2", type: "Share", content: "Shared a link about technology", date: "2024-11-17" }
+        ]
+      },
+      instagram: {
+        username: "@john_doe_instagram",
+        followers: 5000,
+        following: 400,
+        posts: [
+          { postId: "i1", imageUrl: "https://example.com/photo1.jpg", likes: 400, comments: 50, datePosted: "2024-11-14T12:00:00Z" },
+          { postId: "i2", imageUrl: "https://example.com/photo2.jpg", likes: 300, comments: 30, datePosted: "2024-11-12T18:00:00Z" }
+        ]
+      }
+    },
+    activityLog: [
+      { activityId: "log1", action: "Logged in", timestamp: "2024-11-17T10:00:00Z" },
+      { activityId: "log2", action: "Updated profile", timestamp: "2024-11-16T16:45:00Z" },
+      { activityId: "log3", action: "Made a purchase", timestamp: "2024-11-15T12:30:00Z", details: { product: "Laptop", amount: "$1200" } }
+    ],
+    subscriptions: {
+      newsletter: true,
+      premiumAccount: false,
+      betaTester: true
+    },
+    settings: {
+      privacy: {
+        profileVisibility: "Friends Only",
+        searchable: false
+      },
+      security: {
+        twoFactorAuth: true,
+        lastLogin: "2024-11-17T09:00:00Z",
+        devices: [
+          { deviceId: "d1", type: "Mobile", lastUsed: "2024-11-17T09:00:00Z" },
+          { deviceId: "d2", type: "Laptop", lastUsed: "2024-11-16T18:30:00Z" }
+        ]
+      }
+    }
+  };
+
+  user. roles[0] = "viewer";
+  user.roles[1] = "viewer";
+  console.log(user.roles);
+  user.preferences.notifications.push = "false"
+  console.log(user.preferences.notifications);
+  console.log(user.socialProfiles.facebook.recentActivities[0].date);
+  user.subscriptions.newsletter = "subscriptions",
+  user.subscriptions.premiumAccount = "followers",
+  user.subscriptions.betaTester = "name"
+  console.log(user.subscriptions);
