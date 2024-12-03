@@ -453,3 +453,101 @@ const user = {
   user.subscriptions.premiumAccount = "followers",
   user.subscriptions.betaTester = "name"
   console.log(user.subscriptions);
+
+  //-------------------------------------------03.12
+  //--------------- "set timeout" -- ვირჩევთ, რა დროში დაიწყოს მოქმედება
+  setTimeout(() => {
+      console.log("Hohoho");
+  }, 1000);
+
+  clearTimeout();
+  
+  //----------- "set interval" -- ვირჩევთ, რა ინტერვალით გამეორდეს მოქმედება
+  // setInterval(() => {
+  //   console.log("repeat");
+  // }, 2000);
+
+  // let counter =0;
+  // const myInt = setInterval(() => {
+  //   console.log(counter);
+  //   counter ++;
+  //   if (counter === 5) {
+  //     console.log("Finished");
+  //     clearInterval(myInt);
+  //   }
+  // }, 3000);
+
+  // setInterval(() => {
+  //     const now = new Date();
+  //     const time = now.toLocaleDateString();
+  //     console.log(time); 
+  // }, 1000);
+
+// -- setTimeout + setInterval
+const interval = setInterval(() => {
+    console.log("raRac");
+}, 2000);
+
+setTimeout(() => {
+    clearInterval(interval)
+}, 6000);
+
+clearInterval(interval)
+
+// //--
+const interval1 = setInterval(() => {
+  console.log("axali raRac");
+}, 2000);
+setTimeout(() => {
+  clearInterval(interval1);
+  console.log("Over");
+}, 1000);
+
+clearInterval(interval1);
+
+//-- task
+let counter = 10;
+const myCounter = setInterval(() => {
+  console.log(counter);
+    counter --;
+    if (counter === 0) {
+      console.log("countdown is finished");
+      clearInterval(myCounter);
+    }
+}, 1000);
+
+clearInterval(myCounter)
+
+//-------------- 5 წამში დაიწყოს და განახლდეს ყოველ 2 წამში
+const interval2 = setTimeout(() => {
+  setInterval(() => {
+    console.log("kkkkkkkkkkkkkkkkk");
+  }, 2000);
+}, 5000);
+
+clearTimeout(interval2)
+
+//---task --5 წამში დაიწყოს და განახლდეს ყოველ 2 წამში
+const time2 = setTimeout(() => {
+  setInterval(() => {
+    const now1 = new Date();
+    const time1 = now1.toLocaleTimeString();
+    console.log(time1); 
+  }, 2000); 
+}, 5000);
+
+clearTimeout(time2)
+
+//---
+let count2 = 0;
+
+const inter2 = setInterval(() => {
+  console.log(count2);
+  count2 ++;
+  if (count2 === 5) {
+    clearInterval(inter2)
+    setTimeout(() => {
+      console.log("Interval stopped");
+    }, 1000);
+  }
+}, 1000); 
