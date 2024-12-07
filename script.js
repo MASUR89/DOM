@@ -528,26 +528,127 @@ const interval2 = setTimeout(() => {
 clearTimeout(interval2)
 
 //---task --5 წამში დაიწყოს და განახლდეს ყოველ 2 წამში
-const time2 = setTimeout(() => {
-  setInterval(() => {
-    const now1 = new Date();
-    const time1 = now1.toLocaleTimeString();
-    console.log(time1); 
-  }, 2000); 
-}, 5000);
+// const time2 = setTimeout(() => {
+//   setInterval(() => {
+//     const now1 = new Date();
+//     const time1 = now1.toLocaleTimeString();
+//     console.log(time1); 
+//   }, 2000); 
+// }, 5000);
 
-clearTimeout(time2)
+// clearTimeout(time2)
 
-//---
-let count2 = 0;
+// //---
+// let count2 = 0;
 
-const inter2 = setInterval(() => {
-  console.log(count2);
-  count2 ++;
-  if (count2 === 5) {
-    clearInterval(inter2)
-    setTimeout(() => {
-      console.log("Interval stopped");
-    }, 1000);
+// const inter2 = setInterval(() => {
+//   console.log(count2);
+//   count2 ++;
+//   if (count2 === 5) {
+//     clearInterval(inter2)
+//     setTimeout(() => {
+//       console.log("Interval stopped");
+//     }, 1000);
+//   }
+// }, 1000); 
+//----- `${}` კონკატინაცია ქვია ამ სინტაქსს
+//-----------------------------------07/12/24
+//----------promise - როცა არ ვიცით რა დრო დასჭირდება რაღაცას
+// pending, resolved, rejected
+let myprms = new Promise((resolve, reject) => {
+  let success= true;
+
+  if (success) {
+    resolve("done!");
+  } else {
+    reject ("rejected!");
   }
-}, 1000); 
+})
+myprms
+  .then (result => console.log(result))
+  .catch (error => console.log(error));
+
+  //------------  promise.all - ელოდება ყველას შესრულებას
+function task1() {
+  return new Promise (resolve => setTimeout(() => resolve("task1 completed"), 1000));
+}
+function task2() {
+  return new Promise (resolve => setTimeout(() => resolve("task 2 completed"), 2000));
+}
+function task3() {
+  return new Promise (resolve => setTimeout(() => resolve("task 3 completed"), 3000));
+}
+
+Promise.all([task1(), task2(), task3()])
+   .then(results => {console.log(results)})
+   .catch(error => comsole.log(error));
+
+   // --------------promise.race - ყველაზე სწრაფი ფუნქციის დაბრუნება
+   function rame1() {
+    return new Promise (resolve => setTimeout(() => resolve("fastest"), 3000));
+  }
+   function rame2() {
+    return new Promise (resolve => setTimeout(() => resolve("fastest"), 4000));
+  }
+   function rame3() {
+    return new Promise (resolve => setTimeout(() => resolve("fastest"), 5000));
+  }
+
+  Promise.race([rame1(), rame2(), rame3()])
+   .then(results => console.log(results))
+   .catch(error => comsole.log(error));
+
+
+
+   // --task
+   function task4() {
+    return new Promise (resolve => setTimeout(() => resolve("task completed"), 1000));
+  }
+  function task5() {
+    return new Promise (resolve => setTimeout(() => resolve("task completed"), 2000));
+  }
+  function task6() {
+    return new Promise (resolve => setTimeout(() => resolve("task completed"), 3000));
+  }
+  Promise.all([task4(), task5(), task6()])
+     .then(results => {console.log(results)})
+     .catch(error => comsole.log(error));
+
+
+  function task7() {
+      return new Promise(resolve => setTimeout(() => resolve("task completed"), 1000));
+    } 
+  function task8() {
+      return new Promise((resolve, reject) => setTimeout(() => reject("task failed"), 2000));
+    }
+  function task9() {
+      return new Promise(resolve => setTimeout(() => resolve("task completed"), 3000));
+    }
+  Promise.all([task7(), task8(), task9()])
+    .then(results => console.log(results))
+    .catch(error => console.log("One failed:", error));
+    
+
+function fastTask() {
+    return new Promise(resolve => setTimeout(() => resolve("Fast task completed"), 1000));
+    }
+function slowTask() {
+    return new Promise(resolve => setTimeout(() => resolve("Slow task completed"), 3000));
+    }
+Promise.race([fastTask(), slowTask()])
+    .then(result => {console.log("First task completed:", result)})
+    .catch(error => {console.log("An error occurred:", error)});
+    
+// N5
+function randomDelayTask(taskName) {
+  const delay = Math.floor(Math.random() * 5000);
+    return new Promise(resolve => {setTimeout(() => resolve(`${taskName} completed after ${delay}ms`), delay)});
+    }
+const task10 = randomDelayTask("Task z");
+const task20 = randomDelayTask("Task x");
+const task30 = randomDelayTask("Task c");
+    
+Promise.race([task10, task20, task30])
+  .then(result => {console.log("First task completed:", result)})
+  .catch(error => {console.log("An error occurred:", error)});
+    
