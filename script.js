@@ -652,3 +652,8 @@ Promise.race([task10, task20, task30])
   .then(result => {console.log("First task completed:", result)})
   .catch(error => {console.log("An error occurred:", error)});
     
+
+// -----------------------------------------10/12/24
+//-----------fetch api-დან მონაცემების წამოღება
+//http request methods: get, post, patch, put, delete
+// http status codes (1 to 5)
