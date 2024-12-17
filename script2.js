@@ -55,3 +55,86 @@ if (passwordPattern.test(myPassword)) {
 }else {
     console.log("invalid password");
 }
+
+//-------------------------------17/12/24-----ბრაუზერში მონაცემების შენახვა
+//--------local storage - permanent data storage
+localStorage.setItem("name", "Maia");
+console.log("name is ", localStorage.getItem("name"));
+
+let username = localStorage.getItem("name");
+console.log("again ", username);
+
+function saveThemePreference(theme) {
+    localStorage.setItem("theme", theme)
+}
+
+function loadThemePreference () {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+        console.log(`loaded theme: ${theme}`)
+        document.body.className = theme;
+    }else {
+        console.log("N/A");
+    }
+}
+
+saveThemePreference("light");
+loadThemePreference();
+
+// setItem, getItem, removeItem
+
+// --------session storage - data storing for 1 tab only
+sessionStorage.setItem("esaris", "raRAc");
+console.log("esaris", sessionStorage.getItem("esaris"));
+
+// -----stringify, pars
+let userr = {
+    saxeli: "maia",
+    gvari: "surmava",
+}
+
+localStorage.setItem("user", JSON.stringify(userr));
+
+let auser = JSON.parse(localStorage.getItem("userr"));
+
+// console.log(auser.saxeli);
+
+//-----task
+// 1. Using localStorage to save personal information
+localStorage.setItem("name", "John");
+localStorage.setItem("lastName", "Doe");
+localStorage.setItem("age", "28");
+localStorage.setItem("gender", "Male");
+localStorage.setItem("city", "New York");
+
+console.log("");
+console.log("Name:", localStorage.getItem("name"));
+console.log("Last Name:", localStorage.getItem("lastName"));
+console.log("Age:", localStorage.getItem("age"));
+console.log("Gender:", localStorage.getItem("gender"));
+console.log("City:", localStorage.getItem("city"));
+
+// 2. Using sessionStorage to save book information
+sessionStorage.setItem("bookName", "To Kill a Mockingbird");
+sessionStorage.setItem("year", "1960");
+sessionStorage.setItem("author", "Harper Lee");
+
+console.log("");
+console.log("Book Name:", sessionStorage.getItem("bookName"));
+console.log("Year:", sessionStorage.getItem("year"));
+console.log("Author:", sessionStorage.getItem("author"));
+
+// 3. Create an object for bio and save it in localStorage
+const bio = {
+    name: "John",
+    lastName: "Doe",
+    age: 28,
+    gender: "Male",
+    city: "New York",
+};
+localStorage.setItem("bio", JSON.stringify(bio));
+
+
+console.log("");
+const savedBio = JSON.parse(localStorage.getItem("bio")); 
+console.log(savedBio);
